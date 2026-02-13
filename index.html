@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade de Empreendedores Digitais Sérios | Construa Negócios Reais Online</title>
+    <meta name="description" content="Rede de networking para quem quer construir negócios online de verdade. Sem promessas vazias. Sem atalhos. Apenas pessoas comprometidas com o longo prazo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0a0a0a;
+            --color-secondary: #1a1a1a;
+            --color-accent: #ff6b35;
+            --color-accent-glow: rgba(255, 107, 53, 0.3);
+            --color-accent-dark: #e65a2b;
+            --color-gold: #ffd700;
+            --color-gold-dark: #b8860b;
+            --color-text: #1a1a1a;
+            --color-text-light: #525252;
+            --color-bg: #ffffff;
+            --color-bg-alt: #fafafa;
+            --color-bg-dark: #111111;
+            --color-border: #e5e5e5;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+            
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-glow: 0 0 40px var(--color-accent-glow);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--color-primary);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #1a1a1a 0%, #667eea 50%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            letter-spacing: -0.01em;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Sections */
+        section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+        
+        /* Decorative Background Elements */
+        .bg-decoration {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .bg-decoration-1 {
+            top: 10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        
+        .bg-decoration-2 {
+            bottom: 20%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+            filter: blur(100px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            animation: particleFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, var(--color-bg));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-headline {
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: white !important;
+            background: none !important;
+            -webkit-text-fill-color: white !important;
+        }
+        
+        .hero-subheadline {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 400;
+        }
+        
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .hero-bullets li {
+            font-size: 1.125rem;
+            padding: var(--spacing-sm) 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-smooth);
+        }
+        
+        .hero-bullets li:hover {
+            transform: translateX(10px);
+        }
+        
+        .hero-bullets li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-shadow: 0 0 20px var(--color-gold);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .filter-warning {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--color-gold);
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-left: 4px solid var(--color-gold);
+            animation: fadeInUp 1s ease-out 0.8s both, glow 2s ease-in-out infinite;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 rgba(255, 215, 0, 0); }
+            50% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.5); }
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-body);
+            letter-spacing: 0.5px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            box-shadow: 
+                0 10px 30px rgba(255, 107, 53, 0.4),
+                0 0 0 0 rgba(255, 107, 53, 0.5);
+            animation: fadeInUp 1s ease-out 1s both;
+            position: relative;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            padding: 2px;
+            background: linear-gradient(135deg, #ffd700, #ff6b35, #f7931e);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 50px rgba(255, 107, 53, 0.5),
+                0 0 0 8px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section-title {
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            border-radius: 2px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: var(--spacing-md) auto 0;
+        }
+        
+        /* Content Cards */
+        .content-card {
+            background: white;
+            padding: var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            position: relative;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(180deg, var(--color-accent), var(--color-gold));
+            transition: height 0.5s ease;
+            border-radius: 20px 0 0 20px;
+        }
+        
+        .content-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.05), transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .content-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-card:hover::before {
+            height: 100%;
+        }
+        
+        .content-card:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Checklists */
+        .checklist {
+            list-style: none;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .checklist li {
+            padding: var(--spacing-sm) 0;
+            padding-left: 3.5rem;
+            position: relative;
+            font-size: 1.125rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li:hover {
+            padding-left: 4rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .checklist.check-yes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            box-shadow: 
+                0 4px 12px rgba(16, 185, 129, 0.4),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-bounce);
+        }
+        
+        .checklist.check-yes li:hover::before {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 
+                0 6px 20px rgba(16, 185, 129, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .checklist.check-no li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            box-shadow: 
+                0 4px 12px rgba(239, 68, 68, 0.4),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-bounce);
+        }
+        
+        .checklist.check-no li:hover::before {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 
+                0 6px 20px rgba(239, 68, 68, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(255, 107, 53, 0.1) 60deg,
+                transparent 120deg
+            );
+            transition: transform 0.6s ease;
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 16px;
+        }
+        
+        .feature-card:hover::before {
+            transform: rotate(180deg);
+        }
+        
+        .feature-card:hover {
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 
+                var(--shadow-xl),
+                0 0 0 1px rgba(255, 107, 53, 0.1);
+        }
+        
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+        
+        .feature-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            transition: var(--transition-bounce);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 8px 16px rgba(255, 107, 53, 0.3));
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-card:hover .feature-title {
+            color: var(--color-accent);
+        }
+        
+        .feature-description {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+        
+        /* Highlight Sections */
+        .highlight-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            background-size: 200% 200%;
+            animation: gradientSlide 10s ease infinite;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .highlight-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+        
+        .highlight-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        .highlight-section h2,
+        .highlight-section h3 {
+            color: white;
+        }
+        
+        .highlight-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Steps Section */
+        .steps {
+            counter-reset: step-counter;
+            position: relative;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            left: 1.75rem;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: linear-gradient(180deg, var(--color-accent), var(--color-gold));
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+        
+        .step-item {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 5.5rem;
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition-smooth);
+        }
+        
+        .step-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            border-radius: 50%;
+            box-shadow: 
+                0 8px 24px rgba(255, 107, 53, 0.4),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-bounce);
+            z-index: 1;
+        }
+        
+        .step-item:hover::before {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 
+                0 12px 32px rgba(255, 107, 53, 0.6),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-title {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+        
+        .step-description {
+            color: var(--color-text-light);
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+        }
+        
+        .cta-box {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: var(--spacing-lg);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 
+                var(--shadow-xl),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-gold), var(--color-accent));
+            background-size: 200% 200%;
+            animation: gradientRotate 3s linear infinite;
+            border-radius: 24px;
+            z-index: -1;
+        }
+        
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: white;
+            border-radius: 22px;
+            z-index: -1;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+        }
+        
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-title {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .legal-text {
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .legal-text strong {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 3rem;
+                --spacing-xl: 4rem;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .hero-bullets li {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+            
+            .step-item {
+                padding-left: 4rem;
+            }
+            
+            .step-item::before {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.5rem;
+            }
+            
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection */
+        ::selection {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
+            color: white;
+        }
+        
+        /* Scroll Reveal Animations */
+        @keyframes fadeInUpScroll {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal {
+            animation: fadeInUpScroll 0.8s ease-out;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--color-accent), var(--color-gold));
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--color-accent-dark), var(--color-gold-dark));
+        }
+        
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-headline">Construa Negócios Digitais Reais. Sem Atalhos. Sem Promessas Vazias.</h1>
+                
+                <p class="hero-subheadline">
+                    Uma comunidade de networking para empreendedores que entendem que construir um negócio online de verdade exige tempo, aprendizado constante e comprometimento real com o longo prazo.
+                </p>
+                
+                <ul class="hero-bullets">
+                    <li><strong>Networking estratégico</strong> com pessoas que pensam em construir, não em atalhos</li>
+                    <li><strong>Troca de conhecimento real</strong> sobre modelos de negócios, ferramentas e estratégias testadas</li>
+                    <li><strong>Parcerias sérias</strong> com quem está disposto a aprender, testar e crescer junto</li>
+                </ul>
+                
+                <div class="filter-warning">
+                    ⚠️ NÃO É PARA QUEM BUSCA DINHEIRO RÁPIDO OU FÓRMULAS MÁGICAS
+                </div>
+                
+                <a href="https://seu-link-externo.com" class="btn btn-primary">Quero participar da comunidade</a>
+            </div>
+        </div>
+        <div class="bg-decoration bg-decoration-1"></div>
+    </section>
+
+    <!-- Por que essa comunidade existe -->
+    <section>
+        <div class="container-narrow">
+            <div class="section-header">
+                <h2 class="section-title">Por que essa comunidade existe</h2>
+            </div>
+            
+            <div class="content-card">
+                <h3 style="margin-bottom: 1.5rem; color: var(--color-primary);">O problema é real</h3>
+                <p style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text);">
+                    A internet está saturada de promessas vazias. "Ganhe R$ 10.000 em 30 dias". "Método infalível". "Renda passiva automática". E o resultado? Milhares de pessoas frustradas, sem dinheiro e sem direção.
+                </p>
+                <p style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text);">
+                    <strong>A verdade é incômoda, mas necessária:</strong> construir um negócio online de verdade é difícil. Exige aprendizado contínuo, testes, erros, ajustes e principalmente <strong>tempo e consistência</strong>.
+                </p>
+                <p style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text);">
+                    Quando você tenta fazer isso sozinho, o caminho fica ainda mais longo. Você não tem com quem trocar ideias, não sabe em quem confiar, e acaba caindo em armadilhas ou desistindo no meio do caminho.
+                </p>
+            </div>
+            
+            <div class="content-card" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1.5rem; color: var(--color-primary);">Nossa posição é clara</h3>
+                <p style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text);">
+                    Esta comunidade <strong>não promete resultados financeiros</strong>. Não vamos te dizer que você vai ganhar X ou Y. Não vamos vender cursos milagrosos. Não vamos te oferecer esquemas de enriquecimento rápido.
+                </p>
+                <p style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text);">
+                    O que oferecemos é <strong>um espaço seguro para pessoas sérias</strong> que querem trocar conhecimento, formar parcerias reais, discutir estratégias que funcionam (e as que não funcionam), e construir seus negócios com fundamento.
+                </p>
+                <p style="font-size: 1.125rem; color: var(--color-text);">
+                    Se você está procurando fórmulas mágicas, <strong>essa não é a comunidade certa para você</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para quem é -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-content">
+                <div class="section-header">
+                    <h2 class="section-title">Para quem essa comunidade é feita</h2>
+                    <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">
+                        Se você se identifica com esses pontos, você está no lugar certo
+                    </p>
+                </div>
+                
+                <div class="grid grid-2">
+                    <div>
+                        <ul class="checklist check-yes">
+                            <li>Você entende que construir um negócio online leva tempo e dedicação</li>
+                            <li>Você está disposto a aprender, testar e errar até acertar</li>
+                            <li>Você busca conhecimento real, não promessas milagrosas</li>
+                            <li>Você quer trocar experiências com pessoas sérias e comprometidas</li>
+                            <li>Você pensa em médio e longo prazo, não em "ganhos rápidos"</li>
+                            <li>Você valoriza parcerias genuínas e networking de qualidade</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="checklist check-yes">
+                            <li>Você aceita responsabilidade pelos seus resultados</li>
+                            <li>Você está disposto a investir em si mesmo (tempo, esforço, aprendizado)</li>
+                            <li>Você quer construir ativos digitais sustentáveis</li>
+                            <li>Você entende que não existe fórmula mágica</li>
+                            <li>Você quer fazer parte de uma rede colaborativa e transparente</li>
+                            <li>Você está comprometido com a ética e com a transparência</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para quem NÃO é -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Para quem essa comunidade NÃO é</h2>
+                <p class="section-subtitle">
+                    Se você se identifica com qualquer um desses pontos, <strong>não se inscreva</strong>. Você vai apenas perder seu tempo e o nosso.
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div>
+                    <ul class="checklist check-no">
+                        <li>Você quer "dinheiro fácil" ou "ganhos rápidos"</li>
+                        <li>Você busca fórmulas mágicas ou métodos secretos</li>
+                        <li>Você não está disposto a estudar, aprender e se dedicar</li>
+                        <li>Você quer que alguém faça o trabalho por você</li>
+                        <li>Você acredita em promessas de renda garantida</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="checklist check-no">
+                        <li>Você está procurando esquemas de pirâmide ou marketing multinível</li>
+                        <li>Você não aceita errar e aprender com os erros</li>
+                        <li>Você quer resultados imediatos sem esforço</li>
+                        <li>Você não está comprometido com ética e transparência</li>
+                        <li>Você não tem paciência para construir algo sólido</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-card" style="margin-top: 3rem; background: var(--color-warning); color: white; border-color: var(--color-warning);">
+                <h3 style="color: white; margin-bottom: 1rem;">Atenção: Filtro de Qualidade Ativo</h3>
+                <p style="font-size: 1.125rem;">
+                    Queremos apenas pessoas alinhadas com nossos valores. Se você está buscando atalhos ou milagres, existem milhares de ofertas por aí. <strong>Esta não é uma delas.</strong>
+                </p>
+            </div>
+        </div>
+        <div class="bg-decoration bg-decoration-2"></div>
+    </section>
+
+    <!-- O que você encontra -->
+    <section style="background-color: var(--color-bg-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que você pode encontrar na comunidade</h2>
+                <p class="section-subtitle">
+                    Um ambiente construído para facilitar conexões reais e crescimento genuíno
+                </p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="feature-card">
+                    <span class="feature-icon">🤝</span>
+                    <h3 class="feature-title">Networking Estratégico</h3>
+                    <p class="feature-description">
+                        Conecte-se com empreendedores digitais que estão na mesma jornada que você. Pessoas reais, com objetivos reais, dispostas a colaborar.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💡</span>
+                    <h3 class="feature-title">Troca de Conhecimento</h3>
+                    <p class="feature-description">
+                        Discussões sobre modelos de negócios, ferramentas, estratégias de marketing, automação, vendas e tudo que envolve empreender online de verdade.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">Oportunidades Reais</h3>
+                    <p class="feature-description">
+                        Parcerias, joint ventures, projetos colaborativos. Quando pessoas sérias se juntam, oportunidades genuínas aparecem naturalmente.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📚</span>
+                    <h3 class="feature-title">Conteúdo Prático</h3>
+                    <p class="feature-description">
+                        Materiais, estudos de caso, análises de estratégias que funcionaram (e das que não funcionaram). Aprendizado baseado em experiências reais.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3 class="feature-title">Ambiente Seguro</h3>
+                    <p class="feature-description">
+                        Sem spam, sem vendedores insistentes, sem promessas vazias. Apenas pessoas comprometidas com construção real e ética.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h3 class="feature-title">Crescimento Coletivo</h3>
+                    <p class="feature-description">
+                        Uma mentalidade de abundância: quando um cresce, todos crescem. Celebramos vitórias e apoiamos nos desafios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section>
+        <div class="container-narrow">
+            <div class="section-header">
+                <h2 class="section-title">Como funciona</h2>
+                <p class="section-subtitle">
+                    Processo simples e transparente
+                </p>
+            </div>
+            
+            <div class="steps">
+                <div class="step-item">
+                    <h3 class="step-title">Cadastro inicial</h3>
+                    <p class="step-description">
+                        Você clica no botão "Quero participar da comunidade" e preenche um cadastro simples. Queremos saber um pouco sobre você e seus objetivos.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <h3 class="step-title">Análise e convite</h3>
+                    <p class="step-description">
+                        Avaliamos seu perfil para garantir o alinhamento com os valores da comunidade. Pessoas alinhadas recebem convite para os nossos canais de comunicação.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <h3 class="step-title">Integração</h3>
+                    <p class="step-description">
+                        Você recebe acesso aos grupos de discussão, materiais compartilhados e oportunidades de networking. Apresente-se, participe, contribua e cresça.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <h3 class="step-title">Convivência e crescimento</h3>
+                    <p class="step-description">
+                        Respeitamos regras simples: respeito mútuo, sem spam, sem vendas agressivas, foco em agregar valor. Quem não se adequa é naturalmente removido para manter a qualidade do grupo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compromisso com transparência -->
+    <section class="highlight-section">
+        <div class="container-narrow">
+            <div class="highlight-content">
+                <div class="section-header">
+                    <h2 class="section-title">Nosso Compromisso com a Transparência</h2>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1.5rem; font-size: 1.75rem;">Sem promessas vazias</h3>
+                    <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;">
+                        <strong>Nunca</strong> vamos prometer que você vai ganhar dinheiro. Nunca vamos dizer que existe um caminho fácil. O que fazemos é conectar pessoas sérias para que possam crescer juntas.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1.5rem; font-size: 1.75rem;">Sem esquemas</h3>
+                    <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;">
+                        Esta <strong>não é uma pirâmide</strong>, não é um esquema de marketing multinível, não é uma promessa de enriquecimento rápido. É apenas uma rede de pessoas que querem construir negócios honestos.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1.5rem; font-size: 1.75rem;">Sem spam</h3>
+                    <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;">
+                        Você não vai ser bombardeado com ofertas. Não vamos vender seus dados. Não vamos encher sua caixa de entrada de lixo. Valorizamos seu tempo e sua confiança.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1.5rem; font-size: 1.75rem;">Ética acima de tudo</h3>
+                    <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9);">
+                        Construir negócios online de forma ética e sustentável é o nosso compromisso. Não incentivamos práticas duvidosas. Não validamos atalhos ilegais ou antiéticos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <div class="cta-box">
+                <h2 style="margin-bottom: 1.5rem;">Pronto para construir algo real?</h2>
+                <p style="font-size: 1.25rem; color: var(--color-text-light); margin-bottom: 2rem;">
+                    Se você leu até aqui e ainda está interessado, você provavelmente é o tipo de pessoa que queremos na comunidade.
+                </p>
+                
+                <div style="background: var(--color-bg-alt); padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--color-warning);">
+                    <p style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">⚠️ Último aviso:</p>
+                    <p style="color: var(--color-text-light);">
+                        Se você ainda está esperando promessas de resultados rápidos ou fórmulas mágicas, <strong>não clique no botão abaixo</strong>. Você vai perder seu tempo.
+                    </p>
+                </div>
+                
+                <div style="background: var(--color-success); color: white; padding: 1.5rem; margin: 2rem 0;">
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">✓ Mas se você está pronto para:</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 0.25rem 0;">→ Aprender com pessoas sérias</li>
+                        <li style="padding: 0.25rem 0;">→ Construir parcerias reais</li>
+                        <li style="padding: 0.25rem 0;">→ Investir tempo e dedicação</li>
+                        <li style="padding: 0.25rem 0;">→ Pensar em longo prazo</li>
+                    </ul>
+                    <p style="margin-top: 1rem; margin-bottom: 0;"><strong>Então você está no lugar certo.</strong></p>
+                </div>
+                
+                <a href="https://seu-link-externo.com" class="btn btn-primary" style="margin-top: 2rem;">Quero participar da comunidade</a>
+                
+                <p style="font-size: 0.875rem; color: var(--color-text-light); margin-top: 1.5rem;">
+                    Ao clicar, você será redirecionado para nosso formulário de cadastro
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Aviso Legal e Proteção de Dados</h3>
+                
+                <div class="legal-text">
+                    <p style="margin-bottom: 1rem;">
+                        <strong>LGPD - Lei Geral de Proteção de Dados:</strong> Seus dados pessoais fornecidos durante o cadastro serão utilizados exclusivamente para comunicação relacionada à comunidade e envio de informações pertinentes aos nossos objetivos. Não vendemos, compartilhamos ou cedemos seus dados para terceiros sob nenhuma circunstância.
+                    </p>
+                    
+                    <p style="margin-bottom: 1rem;">
+                        <strong>Isenção de Responsabilidade:</strong> Esta comunidade não garante, promete ou assegura qualquer tipo de resultado financeiro. Qualquer decisão de negócio tomada por você é de sua inteira responsabilidade. Não nos responsabilizamos por perdas financeiras, frustrações ou qualquer outro dano relacionado às suas atividades empreendedoras.
+                    </p>
+                    
+                    <p style="margin-bottom: 1rem;">
+                        <strong>Uso de Dados:</strong> Utilizamos seus dados apenas para gerenciar sua participação na comunidade, enviar notificações relevantes e facilitar o networking entre membros. Você pode solicitar a exclusão de seus dados a qualquer momento.
+                    </p>
+                    
+                    <p>
+                        <strong>Transparência Total:</strong> Não há taxas ocultas, cobranças surpresa ou compromissos financeiros na entrada da comunidade. Caso no futuro existam produtos ou serviços pagos, eles serão claramente apresentados e totalmente opcionais.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.5);">
+                        © 2026 Comunidade de Empreendedores Digitais Sérios. Construindo negócios reais, sem promessas vazias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
