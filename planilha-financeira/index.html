@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inscrição YouTube + Playlist Exclusiva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #f9f9f9;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    #subscribeButton {
+      background-color: red;
+      color: white;
+    }
+
+    #continueButton {
+      background-color: green;
+      color: white;
+      display: none;
+    }
+
+    #aguardando {
+      color: gray;
+      font-style: italic;
+      display: none;
+      margin: 20px 0;
+    }
+
+    #conteudoLiberado {
+      display: none;
+      margin-top: 30px;
+    }
+
+    a.playlist-link {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎥 Inscreva-se no nosso canal para baixar a planilha Financeira Completa!</h2>
+    <p>
+      A Inscrição no nosso canal é Grátis!!<br />
+      Após sua inscrição você poderá baixar a planilha Gratuitamente<br />
+      Clique no botão abaixo para se inscrever. Estamos aguardando a confirmação...
+    </p>
+
+    <button id="subscribeButton" onclick="iniciarContagem()">
+      ✅ INSCREVA-SE NO YOUTUBE
+    </button>
+
+    <div id="aguardando">⏳ Aguardando confirmação de inscrição... por favor aguarde 15 segundos...</div>
+
+    <button id="continueButton" onclick="mostrarConteudo()">
+      Já me inscrevi! Mostrar conteúdo
+    </button>
+
+    <div id="conteudoLiberado">
+      <h3>🎉 Conteúdo liberado!</h3>
+      <p>Aqui está seu link:</p>
+      <a
+        href="https://docs.google.com/spreadsheets/d/1qOCUZ6B0zM7j2qMSCQaaDfucmmiBoLy5ActvxXpnn08/edit?gid=809131114#gid=809131114"
+        target="_blank"
+        onclick="dispararPixelPlaylist()"
+        class="playlist-link"
+      >
+        👉 Ir para Planilha Financeira
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function iniciarContagem() {
+      window.open("https://www.youtube.com/@souweverton?sub_confirmation=1", "_blank");
+      document.getElementById("aguardando").style.display = "block";
+      document.getElementById("subscribeButton").disabled = true;
+
+      setTimeout(function () {
+        document.getElementById("continueButton").style.display = "inline-block";
+        document.getElementById("aguardando").innerText = "✅ Pronto! Agora clique no botão abaixo.";
+      }, 15000);
+    }
+
+    function mostrarConteudo() {
+      document.getElementById("conteudoLiberado").style.display = "block";
+      document.getElementById("continueButton").style.display = "none";
+    }
+
+    function dispararPixelPlaylist() {
+      console.log("🎯 Pixel de rastreio poderia ser ativado aqui.");
+    }
+  </script>
+</body>
+</html>
