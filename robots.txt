@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://souweverton.com.br/sitemap.xml
