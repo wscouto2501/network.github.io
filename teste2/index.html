@@ -1,0 +1,82 @@
+<head>
+    <script>
+      window.pixelId = "69b3863bb787b53a9f28f692";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-is-click-bank
+      async
+      defer
+    ></script>
+
+
+  <body>
+<a href="https://4461bk05zp3leob4vosfy3ylzu.hop.clickbank.net">oimoto</a>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const params = window.location.search;
+  if(!params) return;
+
+  const query = params.substring(1);
+
+  function addParams(url){
+
+    if(!url) return url;
+
+    if(url.startsWith("javascript:")) return url;
+    if(url.startsWith("#")) return url;
+
+    if(url.includes("?")){
+      return url + "&" + query;
+    } else {
+      return url + "?" + query;
+    }
+
+  }
+
+  /* intercepta links <a> e <area> */
+  document.querySelectorAll("a, area").forEach(el => {
+    let url = el.getAttribute("href");
+    if(url && url.startsWith("http")){
+      el.href = addParams(url);
+    }
+  });
+
+  /* intercepta formulários */
+  document.querySelectorAll("form").forEach(form=>{
+    let action = form.getAttribute("action");
+    if(action && action.startsWith("http")){
+      form.action = addParams(action);
+    }
+  });
+
+  /* intercepta qualquer clique */
+  document.addEventListener("click", function(e){
+
+    let link = e.target.closest("a");
+
+    if(link){
+
+      let url = link.getAttribute("href");
+
+      if(url && url.startsWith("http")){
+        link.href = addParams(url);
+      }
+
+    }
+
+  });
+
+});
+</script>
+
+
+  </body>
